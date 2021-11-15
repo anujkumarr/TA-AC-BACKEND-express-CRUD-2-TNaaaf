@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1>List of all users</h1>
+  </header>
+  <main>
+    <ul>
+     <% users.map(user=>{   %>
+          <li>
+          <h2>Title: <%= user.title %></h2>
+          <p>Bio: <%= user.description %></p>
+          <p>Age: <%= user.tags %></p>
+          <p>Email: <%= user.author %></p>
+      </li>
+      <a href="/users/<%=user._id%>">
+        <button>Show</button>
+      </a>
+      <a href="/users/new">
+        <button>Back to form page</button>
+      </a>
+      <a href="/users/<%=user.id%>/edit">
+        <button>Edit User</button>
+      </a>
+      <a href="/users/<%=user.id%>/delete">
+        <button>Delete User</button>
+      </a>
+     <% }) %> 
+    </ul>
+  </main>
+</body>
+</html>
