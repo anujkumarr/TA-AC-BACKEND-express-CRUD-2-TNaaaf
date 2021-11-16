@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header style="text-align: center; font-size: 2rem;" >Single article details</header>
+  <main>
+    <h1 style="text-align: center;">Title: <%= article.title%></h1>
+    <h2 style="text-align: center;">Description: <%= article.description%></h2>
+    <h3 style="text-align: center;">Author:  <%= article.author%></h3>
+    <% article.tags.forEach(tag =>{ %>
+      <div style="color: rgb(185, 69, 69);">Tags:<%= tag %></div>
+    <% }) %>
+
+    <h4><%= article.likes ? article.likes : 0%></h4>
+
+      <a href="/articles/<%= article.id %>/likes">
+        <button>like</button>
+      </a>
+      <h4><%= article.dislikes ? article.dislikes : 0%></h4>
+
+      <a href="/articles/<%= article.id %>/dislikes">
+        <button>Dislike</button>
+      </a>
+      
+    <nav>
+      
+      <a href="/articles">
+        <button>
+          All articles
+        </button>
+      </a>
+      <a href="/">
+        <button>Home Page</button>
+      </a>
+      <a href="/articles/new">
+        <button>Back to form page</button>
+      </a>
+      <a href="/articles/<%= article.id %>/edit">
+        <button>Edit article</button>
+      </a>
+      <a href="/articles/<%= article.id %>/delete">
+        <button>Delete article</button>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>
