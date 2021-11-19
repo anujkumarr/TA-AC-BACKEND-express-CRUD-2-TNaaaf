@@ -22,6 +22,26 @@ router.post('/:id', (req, res, next) => {
   });
 });
 
+
+// increment likes
+
+router.get('/:id/likes', (req, res, next) => {
+  var id = req.params.id;
+  Comment.findByIdAndUpdate(id, { $inc: { likes: 1 } }, (err,comment) => {
+    if (err) return next(err);
+    res.redirect('/articles/' + comment.articleId)
+  })
+});
+
+// decrement likes
+router.get('/:id/dislikes', (req, res, next) => {
+  var id = req.params.id;
+  Comment.findByIdAndUpdate(id, { $inc: {dislikes: 1 } }, (err,comment) => {
+    if (err) return next(err);
+    res.redirect('/articles/' + comment.articleId);
+  });
+});
+
 // delete router
 
 router.get("/:id/delete", (req, res, next) => {
@@ -29,7 +49,8 @@ router.get("/:id/delete", (req, res, next) => {
    Comment.findByIdAndDelete(id, req.body, (err, comment) => {
      if (err) return next(err);
      Article.findByIdAndUpdate(comment.articleId, { $pull: { comment: comment._id } }, (err, article) => {
-       res.redirect("/articles/" + comment.articleId)
+       if (err) return next(err);
+       res.redirect("/articles/" + comment.articleId);
      })
    });
 })
