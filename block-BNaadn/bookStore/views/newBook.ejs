@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1>Please add book</h1>
+  </header>
+  <a href="/">
+       <button>Back to the index page</button> 
+  </a>
+  <main>
+     <form action="/books" method="POST" enctype="multipart/form-data">
+       <div>
+        <input type="text" name="title" placeholder="Title..." />
+
+       </div>
+       
+       <div>
+          <input type="text" name="name" placeholder="Add author name" />
+       </div>
+     
+       <div>
+           <textarea name="summary"  cols="" rows="10" placeholder="Add book summary"></textarea>
+       </div>
+       
+       <div>
+            <input type="number" name="pages" placeholder="Number of pages..." />
+       </div>
+
+        <div>
+           <input type="file" name="cover" placeholder="Upload Image"/>
+        </div>
+        
+          <div>
+             <input type="text" name="publication" placeholder="Name of the publication..."/>
+          </div>
+          <div>
+             <input type="email" name="email" placeholder="Author's email" />
+          </div>
+
+          <div>
+              <input type="text" name="country" placeholder="Author's country" />
+          </div>
+
+           <div>
+              <input type="text" name="category" placeholder="Category" />
+          </div>
+
+          <div>
+            <input type="submit" value="Add Book">
+          </div>      
+     </form>
+      <a href="/books">
+        <button>Show all Books</button>
+      </a>  
+  </main>
+</body>
+</html>
