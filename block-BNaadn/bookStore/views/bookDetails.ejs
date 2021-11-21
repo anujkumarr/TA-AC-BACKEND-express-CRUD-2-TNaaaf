@@ -11,9 +11,9 @@
   <main>
     <h1 style="text-align: center;">Title: <%= book.title%></h1>
     <h2 style="text-align: center;">Pages: <%= book.pages%></h2>
-    <h3 style="text-align: center;">Author:  <%= book.author%></h3>
+    <h3 style="text-align: center;">Author:  <%= book.name%></h3>
     <h3 style="text-align: center;">Email:  <%= book.email%></h3>\
-
+    <p><%= book.cover %></p>
     <% book.category.forEach(c =>{ %>
       <div style="color: rgb(185, 69, 69);">Categories:<%= c %></div>
     <% }) %>
